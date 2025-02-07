@@ -3,6 +3,10 @@ package edu.guilford;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * The LamarckianPoker class represents a game of Lamarckian Poker.
+ * The game has two players, each with a hand of cards.
+ */
 public class LamarckianPoker {
     private Hand player1Hand;
     private Hand player2Hand;
@@ -12,6 +16,9 @@ public class LamarckianPoker {
     private Random rand = new Random();
     private int iTurn;
 
+    /**
+     * Generate a new game of Lamarckian Poker.
+     */
     public LamarckianPoker() {
         reset(true);
     }
@@ -28,6 +35,10 @@ public class LamarckianPoker {
         return pool;
     }
 
+    /**
+     * Reset the game, generate and shuffle a new deck of cards and reset turns.
+     * @param newDeck
+     */
     public void reset(boolean newDeck) {
         if (newDeck) {
             deck = new Deck();
@@ -38,6 +49,9 @@ public class LamarckianPoker {
         iTurn = 0;
     }
 
+    /**
+     * Deal 4 cards from the deck to both players.
+     */
     public void deal() {
         player1Hand = new Hand();
         player2Hand = new Hand();
@@ -47,6 +61,9 @@ public class LamarckianPoker {
         }
     }
 
+    /**
+     * Generate a pool of 4 cards from the deck.
+     */
     public void makePool() {
         pool = new Hand();
         for (int iCard = 0; iCard < 4; iCard++) {
@@ -55,6 +72,11 @@ public class LamarckianPoker {
         // System.out.println("Deck size: " + deck.size());
     }
 
+    /**
+     * Plays a turn of Lamarckian Poker.
+     * Players draw a card from their hand and play it against the pool.
+     * @return Returns true if both players have less than 7 cards in their hand.
+     */
     public boolean turn() {
         if (player1Hand.size() < 7 || player2Hand.size() < 7) {
             makePool();

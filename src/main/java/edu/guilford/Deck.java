@@ -3,10 +3,18 @@ package edu.guilford;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * The Deck class represents a deck of playing cards.
+ * The deck is an ArrayList of Card objects.
+ */
 public class Deck {
     private ArrayList<Card> deck = new ArrayList<Card>();
     private Random rand = new Random();
 
+    /**
+     * Constructor for a Deck object.
+     * Builds a deck of 52 cards.
+     */
     public Deck() {
         build();
     }
@@ -19,6 +27,9 @@ public class Deck {
         deck.clear();
     }
 
+    /**
+     * Generates a standard deck of 52 cards
+     */
     public void build() {
         for (Card.Suit suit : Card.Suit.values()) {
             for (Card.Rank rank : Card.Rank.values()) {
@@ -27,6 +38,9 @@ public class Deck {
         }
     }
 
+    /**
+     * Shuffles the deck of cards
+     */
     public void shuffle() {
         ArrayList<Card> tempDeck = new ArrayList<Card>();
         while (deck.size() > 0) {
@@ -37,11 +51,20 @@ public class Deck {
         deck = tempDeck;
     }
 
+    /**
+     * Pick a card from the deck
+     * @param i index of card to pick from the deck
+     * @return Card picked from the deck
+     */
     public Card pick(int i) {
         Card picked = deck.remove(i);
         return picked;
     }
 
+    /**
+     * Deal a card from the deck
+     * @return Card dealt from the deck
+     */
     public Card deal() {
         return deck.remove(0);
     }
@@ -50,6 +73,9 @@ public class Deck {
         return deck.size();
     }
 
+    /**
+     * Displays the deck of cards
+     */
     public String toString() {
         String deckString = "";
         for (Card card : deck) {

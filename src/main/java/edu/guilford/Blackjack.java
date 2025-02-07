@@ -1,15 +1,21 @@
 package edu.guilford;
 
+
+/**
+ * The Blackjack class represents a game of Blackjack.
+ * The game has a player and a dealer, each with a hand of cards.
+ */
 public class Blackjack {
     private Hand playerHand;
     private Hand dealerHand;
     private Deck deck;
 
+    /**
+     * Generate a new game of Blackjack.
+     */
     public Blackjack() {
         reset(true);
     }
-
-    
 
     public Hand getPlayerHand() {
         return playerHand;
@@ -33,6 +39,9 @@ public class Blackjack {
         }
     }
 
+    /**
+     * Deal 2 cards from the deck to both the player and dealer.
+     */
     public void deal() {
         playerHand = new Hand();
         dealerHand = new Hand();
@@ -42,6 +51,10 @@ public class Blackjack {
         dealerHand.addCard(deck.deal());
     }
 
+    /**
+     * Player draws cards until their total is 16 or higher.
+     * @return Returns true if the player's total is 21 or less.
+     */
     public boolean playerTurn() {
         while (playerHand.getTotalValue() < 16) {
             playerHand.addCard(deck.deal());
@@ -50,6 +63,10 @@ public class Blackjack {
 
     }
 
+    /**
+     * Dealer draws cards until their total is 17 or higher.
+     * @return Returns true if the dealer's total is 21 or less.
+     */
     public boolean dealerTurn() {
         while (dealerHand.getTotalValue() < 17) {
             dealerHand.addCard(deck.deal());
@@ -57,7 +74,10 @@ public class Blackjack {
         return dealerHand.getTotalValue() <= 21;
     }
 
-    // Override toString
+    /**
+     * Returns a string representation of the game.
+     * Both hands and value totals are displayed.
+     */
     public String toString() {
         String result = "Player's Hand:\n";
         for (int i = 0; i < playerHand.size(); i++) {

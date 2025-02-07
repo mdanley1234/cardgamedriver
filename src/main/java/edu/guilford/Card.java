@@ -2,6 +2,11 @@ package edu.guilford;
 
 import java.util.Random;
 
+
+/**
+ * The Card class represents a playing card.
+ * Each card has a suit and a rank held in enums.
+ */
 public class Card implements Comparable<Card>{
     // enum for the suits
     public enum Suit {
@@ -18,12 +23,20 @@ public class Card implements Comparable<Card>{
     private Suit suit;
     private Rank rank;
 
-    // constructor
+    /**
+     * Constructor for a Card object
+     * @param suit
+     * @param rank
+     */
     public Card(Suit suit, Rank rank) {
         this.suit = suit;
         this.rank = rank;
     }
 
+    /**
+     * Random constructor for a Card object.
+     * Automatically creates a random card.
+     */
     public Card() {
         // random Card
         Random rand = new Random();
@@ -43,11 +56,14 @@ public class Card implements Comparable<Card>{
     }
 
     // toString
-
     public String toString() {
         return rank + " of " + suit;
     }
 
+    /**
+     * Compares two cards based on rank and suit
+     * @return 1 if this card is greater, -1 if this card is less, 0 if equal
+     */
     @Override
     public int compareTo(Card otherCard) {
         // TODO Auto-generated method stub

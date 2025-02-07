@@ -2,10 +2,11 @@ package edu.guilford;
 
 import java.util.ArrayList;
 
+/**
+ * The Hand class represents a hand of playing cards.
+ */
 public class Hand {
     private ArrayList<Card> hand;
-
-    
 
     public Hand() {
         hand = new ArrayList<Card>();
@@ -31,7 +32,11 @@ public class Hand {
         return hand.get(index);
     }
 
-    // Calculate the value of the hand
+    /**
+     * Calculates the total value of the hand.
+     * Automatically determines the best value for aces.
+     * @return total value of the hand
+     */
     public int getTotalValue() {
         int value = 0;
         int aces = 0;
