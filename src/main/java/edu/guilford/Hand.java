@@ -87,7 +87,9 @@ public class Hand {
         return value;
     }
 
-    // Override toString method
+    /**
+     * Returns a string representation of the hand.
+     */
     public String toString() {
         String handString = "";
         for (Card card : hand) {

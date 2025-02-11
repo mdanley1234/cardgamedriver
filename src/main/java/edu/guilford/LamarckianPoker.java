@@ -81,6 +81,12 @@ public class LamarckianPoker {
         if (player1Hand.size() < 7 || player2Hand.size() < 7) {
             makePool();
             // System.out.println("Turn " + iTurn + "\n" + pool);
+
+            // Catch statement to prevent out of bounds error
+            if (player1Hand.size() == 0 || player2Hand.size() == 0) {
+                return false;
+            }
+
             Card player1Card = player1Hand.getCard(rand.nextInt(player1Hand.size()));
             Card player2Card = player2Hand.getCard(rand.nextInt(player2Hand.size()));
             Hand firstHand, secondHand;
@@ -161,6 +167,7 @@ public class LamarckianPoker {
 
     @Override
     public String toString() {
-        return "\nPlayer 1: \n" + player1Hand + "\nPlayer 2: \n" + player2Hand + "\nPool: " + pool + "\n";
+        return "\nPlayer 1: \n" + player1Hand + "\nPlayer 2: \n" + player2Hand;
+        // "\nPool: " + pool + "\n"; // Pool removed from toString (Pool is empty)
     }
 }

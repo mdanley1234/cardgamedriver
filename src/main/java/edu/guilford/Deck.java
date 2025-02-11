@@ -66,6 +66,10 @@ public class Deck {
      * @return Card dealt from the deck
      */
     public Card deal() {
+
+        // TODO: The deal() method fails to check for empty decks.
+        // Add a check to see if the deck is empty.
+
         return deck.remove(0);
     }
 
